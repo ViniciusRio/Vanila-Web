@@ -10,7 +10,6 @@ const query = 'puppy';
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${query}&orientation=squarish`;
 
 function imageLoader(imagesLoaded, totalImages) {
-  
   // vanish loader
   if (imagesLoaded === totalImages) {
     ready = true;
@@ -28,8 +27,6 @@ async function getPhotos() {
     try {
       const response = await fetch(apiUrl);
       const photosArray = await response.json();
-      console.log('after', photosArray);
-
       
       displayPhotos(photosArray);
 
@@ -68,12 +65,14 @@ function displayPhotos(photosArray) {
 
 window.addEventListener('scroll', () => {
   /*
-    Height the screen of content + amount em pixels that scrolling 
+    Height the screen of content + amount pixels that scrolling 
     >=
-    Height the body (incluing borders and padding) - 1000 e ready
+    Height the body (incluing borders and padding) - 1000 
+    and only img ready (all photos loaded)
    */
+  console.log(document.body.offsetHeight);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
-    console.log('scroll event');
+    // turn false ready for restart loop photos load 
     ready = false;
 
     getPhotos();
