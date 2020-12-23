@@ -19,8 +19,52 @@ h1 {
     letter-spacing: 4px;
 }
 
+.image-container {
+    /*
+        margin vertical and horizontal
+    */
+    margin: 10px 10%;
+}
+
+.image-container img {
+    width: 30%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+.loader img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 @media screen and (max-width: 1000px) {
     h1 {
         font-size: 25px;
+    }
+    /*
+      remove margin horizontal
+    */
+    .image-container {
+        margin: 10px;
+    }
+    /*
+        reduce width for mobile,
+        remove padding
+        remove margin top
+    */
+    .image-container img {
+        width: 100%;
+        padding: 0;
     }
 }

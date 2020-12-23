@@ -1,6 +1,6 @@
-export function setAttributes(elemtent, attributes) {
+export function setAttributes(element, attributes) {
     for (const key in attributes) {
-        elemtent.setAttributes(key, attributes[key]);
+        element.setAttributes(key, attributes[key]);
     };
 }
     
